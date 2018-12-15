@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 namespace QuizAPI.Models
@@ -12,6 +13,8 @@ namespace QuizAPI.Models
         public string LanguageName { get; set; }
         public virtual List<Question> Questions { get; set; }
     }
+
+
     public class Certification
     {
         [Key]
@@ -26,7 +29,7 @@ namespace QuizAPI.Models
 
     public class KnowledgeArea
     {
-      
+
         [Key]
         public int KnowledgeAreaId { get; set; }
         [Required(ErrorMessage = "Enter Correct Certification")]
@@ -123,10 +126,10 @@ namespace QuizAPI.Models
         public bool isDisplayOnly { get; set; }
 
 
-       public virtual LanguageMaster LanguageMaster { get; set; }
+        public virtual LanguageMaster LanguageMaster { get; set; }
         public virtual KnowledgeArea KnowledgeArea { get; set; }
 
-        
+
         public virtual Certification Certification { get; set; }
 
         public virtual List<CandidateExamQuestionDetail> CandidateExamQuestionDetails { get; set; }
@@ -205,6 +208,119 @@ namespace QuizAPI.Models
         public virtual Question Question { get; set; }
         public virtual CandidateExamDetail CandidateExamDetail { get; set; }
     }
+
+
+
+    public class CountryMaster
+    {
+        [Key]
+        public int CountryId { get; set; }
+        [Required(ErrorMessage = "Enter Country")]
+        [Display(Name = "Country Name")]
+        public string CountryName { get; set; }
+        public virtual List<JobVaccancy> JobVaccancys { get; set; }
+    }
+
+    public class JobField
+    {
+        [Key]
+        public int JobFieldId { get; set; }
+        [Required(ErrorMessage = "Enter Job Field")]
+        [Display(Name = "Job Field")]
+        public string JobFieldName { get; set; }
+        public virtual List<JobFieldArea> JobFieldAreas { get; set; }
+    }
+
+    public class JobFieldArea
+    {
+        [Key]
+        public int JobAreaId { get; set; }
+        [Required(ErrorMessage = "Enter Job Area")]
+        [Display(Name = "Job Area")]
+        public string JobAreaName { get; set; }
+        public int JobFieldId { get; set; }
+        public virtual JobField JobField { get; set; }
+        public virtual List<JobVaccancy> JobVaccancys { get; set; }
+    }
+
+    public class JobVaccancy
+    {
+        [Key]
+        public int JobID { get; set; }
+        [Display(Name = "Job Tittle")]
+        public String JobTitle { get; set; }
+        [Display(Name = "Country")]
+        public int CountryId { get; set; }
+        [Display(Name = "Job Area")]
+        public int JobAreaId { get; set; }
+        [Display(Name = "Job Location")]
+        public String JobLocation { get; set; }
+        [Display(Name = "Company  Name")]
+        public String CompanyName { get; set; }
+        [Display(Name = "Employment  Type")]
+        public String EmploymentType { get; set; }
+        [Display(Name = "Monthly  Salary")]
+        public String MonthlySalary { get; set; }
+        public String Benefits { get; set; }
+        [Display(Name = "Min Work Experience Req")]
+        public String MinimumWorkExperience { get; set; }
+        [Display(Name = "Min Education  Req")]
+        public String MinimumEducationLevel { get; set; }
+        [Display(Name = "Advertised on")]
+        public String ListedBy { get; set; }
+        [Display(Name = "Company Size")]
+        public String CompanySize { get; set; }
+        [Display(Name = "Career Level")]
+        public String CareerLevel { get; set; }
+        public String Description { get; set; }
+        public String Skills { get; set; }
+        public String EmailID { get; set; }
+        [Display(Name = "Contact Person")]
+        public String ContactPerson { get; set; }
+        [Display(Name = "Phone Number")]
+        public String PhoneNumber { get; set; }
+
+        public String Country { get; set; }
+        [Display(Name = "Job Category")]
+        public String JobCategory { get; set; }
+        [Display(Name = "Posted Date")]
+        public DateTime PostedDate { get; set; }
+        [Display(Name = "Last Date")]
+        public DateTime LasteDate { get; set; }
+        [Display(Name = "Still Active")]
+        public Boolean IsActive { get; set; }
+        public virtual CountryMaster CountryMaster { get; set; }
+        public virtual JobFieldArea JobFieldArea { get; set; }
+    }
+
+
+    public class SiteUrl
+    {
+        [Key]
+        public int SiteUrlId { get; set; }
+
+        [Required(ErrorMessage = "Enter URL")]
+        [Display(Name = "Page  URL")]
+        public string PageUrlAddress { get; set; }
+
+        [Required(ErrorMessage = "Enter Tittle")]
+        [Display(Name = "Page  Tittle")]
+        public string PageTittle { get; set; }
+
+
+        [Required(ErrorMessage = "Enter Description")]
+        [Display(Name = "Page  Description")]
+        public string PageDescription { get; set; }
+
+        [Required(ErrorMessage = "Enter Keywords")]
+        [Display(Name = "Page  Keywords")]
+        public string PageKeywords { get; set; }
+
+        [Required(ErrorMessage = "Enter SlugName")]
+        [Display(Name = "Page  SlugName")]
+        public string PageSlugName { get; set; }
+    }
+
 }
 
 

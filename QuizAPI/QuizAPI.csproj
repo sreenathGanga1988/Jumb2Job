@@ -51,15 +51,35 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LowercaseDashedRouting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LowercaseDashedRoute.1.0.14\lib\LowercaseDashedRouting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -76,17 +96,11 @@
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -160,6 +174,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\CertificationsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\CountryMastersController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\JobFieldAreasController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\JobFieldsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\KnowledgeAreasController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\LanguageMastersController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\QuestionsController.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -188,26 +210,54 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\CertificationsController.cs" />
+    <Compile Include="Areas\OnlineTest\OnlineTestAreaRegistration.cs" />
+    <Compile Include="Areas\OnlineTest\Controllers\TestController.cs" />
+    <Compile Include="Controllers\CertificationController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KnowledgeAreasController.cs" />
-    <Compile Include="Controllers\LanguageMastersController.cs" />
+    <Compile Include="Controllers\HRInterviewController.cs" />
+    <Compile Include="Controllers\JobVaccanciesController.cs" />
+    <Compile Include="Controllers\KeralaPSCController.cs" />
     <Compile Include="Controllers\PMPController.cs" />
-    <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\UtilityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811021138290_FirstLoad.cs" />
-    <Compile Include="Migrations\201811021138290_FirstLoad.Designer.cs">
-      <DependentUpon>201811021138290_FirstLoad.cs</DependentUpon>
+    <Compile Include="Migrations\201811040616432_addedlanguage.cs" />
+    <Compile Include="Migrations\201811040616432_addedlanguage.Designer.cs">
+      <DependentUpon>201811040616432_addedlanguage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811021643557_addedlanguge.cs" />
-    <Compile Include="Migrations\201811021643557_addedlanguge.Designer.cs">
-      <DependentUpon>201811021643557_addedlanguge.cs</DependentUpon>
+    <Compile Include="Migrations\201811040630148_addedtest.cs" />
+    <Compile Include="Migrations\201811040630148_addedtest.Designer.cs">
+      <DependentUpon>201811040630148_addedtest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811021811297_addedKnowledgeArea.cs" />
-    <Compile Include="Migrations\201811021811297_addedKnowledgeArea.Designer.cs">
-      <DependentUpon>201811021811297_addedKnowledgeArea.cs</DependentUpon>
+    <Compile Include="Migrations\201811040637024_addlanguage.cs" />
+    <Compile Include="Migrations\201811040637024_addlanguage.Designer.cs">
+      <DependentUpon>201811040637024_addlanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811060515438_addedjobandcountry.cs" />
+    <Compile Include="Migrations\201811060515438_addedjobandcountry.Designer.cs">
+      <DependentUpon>201811060515438_addedjobandcountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811110634438_addedjobarea.cs" />
+    <Compile Include="Migrations\201811110634438_addedjobarea.Designer.cs">
+      <DependentUpon>201811110634438_addedjobarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811110642522_addnewtables.cs" />
+    <Compile Include="Migrations\201811110642522_addnewtables.Designer.cs">
+      <DependentUpon>201811110642522_addnewtables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811110721411_removedisactive.cs" />
+    <Compile Include="Migrations\201811110721411_removedisactive.Designer.cs">
+      <DependentUpon>201811110721411_removedisactive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121211414_addsomething.cs" />
+    <Compile Include="Migrations\201811121211414_addsomething.Designer.cs">
+      <DependentUpon>201811121211414_addsomething.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812100710417_addedsiteurl.cs" />
+    <Compile Include="Migrations\201812100710417_addedsiteurl.Designer.cs">
+      <DependentUpon>201812100710417_addedsiteurl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -216,6 +266,8 @@
     <Compile Include="Models\ViewModel\QuizViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DbRepository.cs" />
+    <Compile Include="SeoFriendlyRoute.cs" />
+    <Compile Include="Services\Sitemapsection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -223,10 +275,18 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\bolt.gif" />
+    <Content Include="Content\Images\interview-preparation1.jpg" />
+    <Content Include="Content\Images\interview-preparation2.jpg" />
+    <Content Include="CSS\common-question.css" />
+    <Content Include="CSS\Genuinity-Certificate.css" />
+    <Content Include="CSS\Interview-preparation.css" />
+    <Content Include="CSS\menu.css" />
+    <Content Include="CSS\mypage.css" />
+    <Content Include="CSS\QuestionClass.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -251,14 +311,66 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\AdminPanel\Views\web.config" />
+    <Content Include="Areas\OnlineTest\Views\web.config" />
+    <Content Include="Areas\OnlineTest\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\OnlineTest\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\OnlineTest\Views\Test\TestEngine.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Questions\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Questions\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Questions\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Questions\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Questions\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Certifications\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Certifications\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Certifications\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Certifications\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Certifications\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\KnowledgeAreas\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\KnowledgeAreas\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\KnowledgeAreas\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\KnowledgeAreas\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\KnowledgeAreas\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\CountryMasters\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\CountryMasters\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\CountryMasters\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\CountryMasters\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\CountryMasters\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFields\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFields\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFields\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFields\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFields\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFieldAreas\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFieldAreas\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFieldAreas\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFieldAreas\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\JobFieldAreas\Index.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\LanguageMasters\Create.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\LanguageMasters\Delete.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\LanguageMasters\Details.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\LanguageMasters\Edit.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\LanguageMasters\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Home.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\PassWordStrengthCheck.js" />
+    <Content Include="Scripts\QuestionViewer.js" />
+    <Content Include="Scripts\TestEngine.js" />
+    <Content Include="Views\Home\index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\QuestionPage.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -269,33 +381,37 @@
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\LanguageMasters\Create.cshtml" />
-    <Content Include="Views\LanguageMasters\Delete.cshtml" />
-    <Content Include="Views\LanguageMasters\Details.cshtml" />
-    <Content Include="Views\LanguageMasters\Edit.cshtml" />
-    <Content Include="Views\LanguageMasters\Index.cshtml" />
-    <Content Include="Views\Certifications\Create.cshtml" />
-    <Content Include="Views\Certifications\Delete.cshtml" />
-    <Content Include="Views\Certifications\Details.cshtml" />
-    <Content Include="Views\Certifications\Edit.cshtml" />
-    <Content Include="Views\Certifications\Index.cshtml" />
-    <Content Include="Views\KnowledgeAreas\Create.cshtml" />
-    <Content Include="Views\KnowledgeAreas\Delete.cshtml" />
-    <Content Include="Views\KnowledgeAreas\Details.cshtml" />
-    <Content Include="Views\KnowledgeAreas\Edit.cshtml" />
-    <Content Include="Views\KnowledgeAreas\Index.cshtml" />
-    <Content Include="Views\Questions\Create.cshtml" />
-    <Content Include="Views\Questions\Delete.cshtml" />
-    <Content Include="Views\Questions\Details.cshtml" />
-    <Content Include="Views\Questions\Edit.cshtml" />
-    <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Shared\_CommentBox.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\HRInterview\InterviewDoesandDont.cshtml" />
+    <Content Include="Views\HRInterview\CommonHRQuestions.cshtml" />
+    <Content Include="Views\Documents\UaeEquivalancyCertificate.cshtml" />
+    <Content Include="Views\Certification\SamplePMPQuestion.cshtml" />
+    <Content Include="Views\HRInterview\HrInterviewTips.cshtml" />
+    <Content Include="Views\HRInterview\PreparingforInterview.cshtml" />
+    <Content Include="Views\Utility\PassWordStrengthCheck.cshtml" />
+    <Content Include="Views\JobVaccancies\Create.cshtml" />
+    <Content Include="Views\JobVaccancies\Delete.cshtml" />
+    <Content Include="Views\JobVaccancies\Details.cshtml" />
+    <Content Include="Views\JobVaccancies\Edit.cshtml" />
+    <Content Include="Views\JobVaccancies\Index.cshtml" />
+    <Content Include="Views\KeralaPSC\EnglishPSCQuestions.cshtml" />
+    <Content Include="Views\KeralaPSC\PSCMalayalamQuestions.cshtml" />
+    <Content Include="Views\KeralaPSC\OnlineMalayalamPSCTest.cshtml" />
+    <Content Include="Views\KeralaPSC\OnlineEnglishPSCTest.cshtml" />
+    <Content Include="Views\Certification\MCSDQuestions.cshtml" />
+    <Content Include="Views\Certification\MicrosoftCertifications.cshtml" />
+    <Content Include="Views\Certification\MCSD70480HtmlandJavascript.cshtml" />
+    <Content Include="Views\KeralaPSC\Index.cshtml" />
+    <Content Include="Views\KeralaPSC\KeralaPSCUniversityAssistantTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="NewFolder1\" />
+    <Folder Include="Areas\AdminPanel\Models\" />
+    <Folder Include="Areas\OnlineTest\Models\" />
+    <Folder Include="easy-comment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -327,14 +443,32 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811021138290_FirstLoad.resx">
-      <DependentUpon>201811021138290_FirstLoad.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811040616432_addedlanguage.resx">
+      <DependentUpon>201811040616432_addedlanguage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811021643557_addedlanguge.resx">
-      <DependentUpon>201811021643557_addedlanguge.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811040630148_addedtest.resx">
+      <DependentUpon>201811040630148_addedtest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811021811297_addedKnowledgeArea.resx">
-      <DependentUpon>201811021811297_addedKnowledgeArea.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811040637024_addlanguage.resx">
+      <DependentUpon>201811040637024_addlanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811060515438_addedjobandcountry.resx">
+      <DependentUpon>201811060515438_addedjobandcountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811110634438_addedjobarea.resx">
+      <DependentUpon>201811110634438_addedjobarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811110642522_addnewtables.resx">
+      <DependentUpon>201811110642522_addnewtables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811110721411_removedisactive.resx">
+      <DependentUpon>201811110721411_removedisactive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121211414_addsomething.resx">
+      <DependentUpon>201811121211414_addsomething.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812100710417_addedsiteurl.resx">
+      <DependentUpon>201812100710417_addedsiteurl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

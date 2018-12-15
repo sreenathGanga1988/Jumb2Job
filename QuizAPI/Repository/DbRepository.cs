@@ -40,13 +40,13 @@ namespace QuizAPI.Repository
             return q;
         }
 
-        public static List<QuestionViewModel> GetQuestionofExamofLanguage(int CertificationId,int LanguageId)
+        public static List<QuestionViewModel> GetQuestionofExamofLanguage(int CertificationId, int LanguageId)
         {
             //  List<Question> questions = cntxt.Questions.ToList();
 
 
             var q = (from qst in cntxt.Questions
-                     where qst.LanguageId==LanguageId && qst.CertificationId==CertificationId 
+                     where qst.LanguageId == LanguageId && qst.CertificationId == CertificationId
                      select new QuestionViewModel
                      {
                          QuestionId = qst.QuestionId,
@@ -72,6 +72,178 @@ namespace QuizAPI.Repository
 
             return question;
         }
+        public static List<QuestionViewModel> GetNumberofQuestionQuestion(int numberofQuestion, int certificationId, int LanguageId)
+        {
+            //  List<Question> questions = cntxt.Questions.ToList();
+
+
+            var q = (from qst in cntxt.Questions
+                     where qst.LanguageId == LanguageId && qst.CertificationId == certificationId
+                     select new QuestionViewModel
+                     {
+                         QuestionId = qst.QuestionId,
+                         FullQuestion = qst.FullQuestion,
+                         AnswerOption1 = qst.AnswerOption1.Trim(),
+                         AnswerOption2 = qst.AnswerOption2.Trim(),
+                         AnswerOption3 = qst.AnswerOption3.Trim(),
+                         AnswerOption4 = qst.AnswerOption4.Trim(),
+                         CorrectAnswer = qst.CorrectAnswerIndex.Trim(),
+                         UserAnswer = "",
+                         isCorrect = "",
+                         Mark = qst.Mark,
+                         AreaofKnowledge = qst.KnowledgeArea.KnowledgeAreaName,
+                         AnswerExplanation = qst.AnswerExplanation
+                     }).OrderBy(a => Guid.NewGuid()).Take(numberofQuestion).ToList();
+
+
+
+
+
+
+            foreach (var element in q)
+            {
+                Random random = new Random();
+                var numbers = Enumerable.Range(0, 4);
+
+                String[] Answers = new String[4] { element.AnswerOption1, element.AnswerOption2, element.AnswerOption3, element.AnswerOption4 };
+
+
+                int[] shuffle = numbers.OrderBy(a => random.NextDouble()).ToArray();
+
+                element.AnswerOption1 = Answers[shuffle[0]];
+                element.AnswerOption2 = Answers[shuffle[1]];
+                element.AnswerOption3 = Answers[shuffle[2]];
+                element.AnswerOption4 = Answers[shuffle[3]];
+
+
+
+
+            }
+
+
+
+
+
+            return q;
+        }
+
+        public static List<QuestionViewModel> GetNumberofQuestionQuestion(int numberofQuestion, int certificationId, int knowledgeAreaID, int LanguageId)
+        {
+            //  List<Question> questions = cntxt.Questions.ToList();
+
+
+            var q = (from qst in cntxt.Questions
+                     where qst.LanguageId == LanguageId && qst.CertificationId == certificationId && qst.KnowledgeAreaId == knowledgeAreaID
+                     select new QuestionViewModel
+                     {
+                         QuestionId = qst.QuestionId,
+                         FullQuestion = qst.FullQuestion,
+                         AnswerOption1 = qst.AnswerOption1.Trim(),
+                         AnswerOption2 = qst.AnswerOption2.Trim(),
+                         AnswerOption3 = qst.AnswerOption3.Trim(),
+                         AnswerOption4 = qst.AnswerOption4.Trim(),
+                         CorrectAnswer = qst.CorrectAnswerIndex.Trim(),
+                         UserAnswer = "",
+                         isCorrect = "",
+                         Mark = qst.Mark,
+                         AreaofKnowledge = qst.KnowledgeArea.KnowledgeAreaName,
+                         AnswerExplanation = qst.AnswerExplanation
+                     }).OrderBy(a => Guid.NewGuid()).Take(numberofQuestion).ToList();
+
+
+
+
+
+
+            foreach (var element in q)
+            {
+                Random random = new Random();
+                var numbers = Enumerable.Range(0, 4);
+
+                String[] Answers = new String[4] { element.AnswerOption1, element.AnswerOption2, element.AnswerOption3, element.AnswerOption4 };
+
+
+                int[] shuffle = numbers.OrderBy(a => random.NextDouble()).ToArray();
+
+                element.AnswerOption1 = Answers[shuffle[0]];
+                element.AnswerOption2 = Answers[shuffle[1]];
+                element.AnswerOption3 = Answers[shuffle[2]];
+                element.AnswerOption4 = Answers[shuffle[3]];
+
+
+
+
+            }
+
+
+
+
+
+            return q;
+        }
+
+
+
+        public static List<QuestionViewModel> GetSingleQuestion(int QuestionID)
+        {
+            //  List<Question> questions = cntxt.Questions.ToList();
+
+
+            var q = (from qst in cntxt.Questions
+                     where qst.QuestionId == QuestionID
+                     select new QuestionViewModel
+                     {
+                         QuestionId = qst.QuestionId,
+                         FullQuestion = qst.FullQuestion,
+                         AnswerOption1 = qst.AnswerOption1.Trim(),
+                         AnswerOption2 = qst.AnswerOption2.Trim(),
+                         AnswerOption3 = qst.AnswerOption3.Trim(),
+                         AnswerOption4 = qst.AnswerOption4.Trim(),
+                         CorrectAnswer = qst.CorrectAnswerIndex.Trim(),
+                         UserAnswer = "",
+                         isCorrect = "",
+                         Mark = qst.Mark,
+                         AreaofKnowledge = qst.KnowledgeArea.KnowledgeAreaName,
+                         AnswerExplanation = qst.AnswerExplanation.ToString() + "/" + qst.AreaofKnowledge.ToString()
+                     }).ToList();
+
+
+
+
+
+
+            foreach (var element in q)
+            {
+                Random random = new Random();
+                var numbers = Enumerable.Range(0, 4);
+
+                String[] Answers = new String[4] { element.AnswerOption1, element.AnswerOption2, element.AnswerOption3, element.AnswerOption4 };
+
+
+                int[] shuffle = numbers.OrderBy(a => random.NextDouble()).ToArray();
+
+                element.AnswerOption1 = Answers[shuffle[0]];
+                element.AnswerOption2 = Answers[shuffle[1]];
+                element.AnswerOption3 = Answers[shuffle[2]];
+                element.AnswerOption4 = Answers[shuffle[3]];
+
+
+
+
+            }
+
+
+
+
+
+            return q;
+        }
+
+
+
+
+
+
     }
 
 

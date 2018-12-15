@@ -32,6 +32,14 @@ public class QuizContext : DbContext
     public System.Data.Entity.DbSet<KnowledgeArea> KnowledgeAreas { get; set; }
     public System.Data.Entity.DbSet<QuestionPercentage> QuestionPercentages { get; set; }
     public System.Data.Entity.DbSet<QuestionPercentageDetail> QuestionPercentageDetails { get; set; }
+    public System.Data.Entity.DbSet<LanguageMaster> LanguageMasters { get; set; }
+    public System.Data.Entity.DbSet<CountryMaster> CountryMasters { get; set; }
+    public System.Data.Entity.DbSet<JobFieldArea> JobFieldAreas { get; set; }
+    public System.Data.Entity.DbSet<JobField> JobFields { get; set; }
+    public System.Data.Entity.DbSet<JobVaccancy> JobVaccancys { get; set; }
+    public System.Data.Entity.DbSet<SiteUrl> SiteUrls { get; set; }
 
-    public System.Data.Entity.DbSet<QuizAPI.Models.LanguageMaster> LanguageMasters { get; set; }
+
+
+
 }

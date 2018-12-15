@@ -1,0 +1,50 @@
+﻿<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="~/Scripts/QuestionViewer.js"></script>
+<link href="~/CSS/QuestionClass.css" rel="stylesheet" />
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var uri = '/api/pmp/GetQuestion';
+
+        var param = { certificationId: 2, languageID: 2, Number: 15 };
+        GetData(uri, param)
+    });
+
+</script>
+
+<h1>@ViewBag.Heading </h1>
+
+<div class="container">
+    <div>
+        <p style="text-align:center ;padding-right :10px">
+            <button type="button" id="new50Qstn" class="btn btn-info" onclick="Reload()">Get New 15 Questions</button>
+
+        </p>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" data-toggle="toggle" id="checkboxOption">
+            Hide Options
+        </label>
+    </div>
+    <div id="ResultDiv"></div>
+    <div id="timer"></div>
+    <div id="MainCont">
+
+    </div>
+
+    <div id='loadingmessage' style='display:none'>
+        <img src="~/Content/Images/bolt.gif" />
+
+    </div>
+    <p>To Study Kerala PSC Questions in English,  click here <a href="@Url.Action("EnglishPSCQuestions", "KeralaPSC")">F>Free English Kerala PSC Questions</a> </p>
+
+    <div>
+        @{
+            Html.RenderPartial("/Views/Shared/_CommentBox.cshtml");
+        }
+    </div>
+</div>
+
+
